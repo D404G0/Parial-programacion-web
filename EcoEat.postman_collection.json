@@ -1,0 +1,154 @@
+{
+  "info": {
+    "_postman_id": "ecoeat-chef-virtual-collection-id",
+    "name": "EcoEat - Chef Virtual Anti-Desperdicio",
+    "description": "Colección de pruebas de Postman para los 4 endpoints HTTP del backend Flask del proyecto EcoEat.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. GET Ingredientes Sugeridos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/ingredientes/sugeridos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "ingredientes",
+            "sugeridos"
+          ]
+        },
+        "description": "Retorna la lista de ingredientes sugeridos para autocompletar en la app móvil."
+      },
+      "response": []
+    },
+    {
+      "name": "2. POST Generar Receta (IA)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ingredientes\": [\"Tomate\", \"Huevo\", \"Cebolla\", \"Papa\"]\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/receta/generar",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "receta",
+            "generar"
+          ]
+        },
+        "description": "Genera una receta de aprovechamiento anti-desperdicio procesada por la IA a partir de la lista de ingredientes."
+      },
+      "response": []
+    },
+    {
+      "name": "3. PUT Actualizar Favorito",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"favorito\": true\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/historial/favorito",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "historial",
+            "favorito"
+          ]
+        },
+        "description": "Marca o desmarca una receta del historial como favorita enviando su ID."
+      },
+      "response": []
+    },
+    {
+      "name": "4. DELETE Eliminar Receta",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/historial/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "historial",
+            "1"
+          ]
+        },
+        "description": "Elimina la receta especificada por ID del historial en memoria del servidor."
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET Historial Completo (Opcional)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/historial",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "historial"
+          ]
+        },
+        "description": "Lista todas las recetas actualmente almacenadas en el historial del servidor."
+      },
+      "response": []
+    }
+  ]
+}

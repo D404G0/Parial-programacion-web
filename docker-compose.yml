@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Backend Python Flask API Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecoeat_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - PORT=5000
+      - HOST=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - ecoeat_network
+
+  # Frontend Flutter Web UI Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ecoeat_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - ecoeat_network
+
+networks:
+  ecoeat_network:
+    driver: bridge
