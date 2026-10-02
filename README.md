@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EcoEat – Chef Virtual Anti-Desperdicio
 
 Sistema completo para la reducción del desperdicio de alimentos integrando Inteligencia Artificial (Google Gemini), un backend RESTful en Python (Flask) y una aplicación móvil desarrollada en Flutter.
@@ -67,3 +68,6 @@ Sistema completo para la reducción del desperdicio de alimentos integrando Inte
    ```bash
    flutter run
    ```
+=======
+# Parial-programacion-web
+>>>>>>> b4547ac64a6fad37eb81b79605063496675bd094
