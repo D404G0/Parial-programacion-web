@@ -1,4 +1,5 @@
 # 🍽️ EcoEat – Chef Virtual Anti-Desperdicio
+# EcoEat – Chef Virtual Anti-Desperdicio
 
 Aplicación móvil desarrollada con **Flutter** que permite a los usuarios registrar los ingredientes disponibles en su hogar y generar recetas de aprovechamiento mediante **Inteligencia Artificial**.
 El proyecto está compuesto por una aplicación móvil desarrollada en Flutter y un backend desarrollado en Python con Flask, encargado de procesar las solicitudes, comunicarse con la API de Inteligencia Artificial y administrar el historial de recetas.
@@ -1136,3 +1137,4 @@ Su utilización, distribución y modificación están sujetas a las condiciones 
 > **"Convierte tus ingredientes disponibles en nuevas posibilidades."**
 
 EcoEat combina **tecnología, Inteligencia Artificial y aprovechamiento de alimentos** para ayudar a los usuarios a descubrir nuevas recetas utilizando los ingredientes que ya tienen disponibles en casa.
+

@@ -3,7 +3,6 @@
 .vscode
 .git
 .gitignore
-build
 ios
 android
 windows

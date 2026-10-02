@@ -1,23 +1,10 @@
-# Stage 1: Build Flutter Web App
-FROM ghcr.io/cirrusci/flutter:stable AS build-stage
+# Dockerfile de Producción Ultra Rápido y Ligero para Flutter Web (Docker Hub oficial)
+FROM nginx:alpine
 
-WORKDIR /app
+# Copiar la aplicación web compilada de Flutter al directorio público de Nginx
+COPY build/web /usr/share/nginx/html
 
-# Copy dependency definition
-COPY pubspec.yaml pubspec.lock ./
-RUN flutter pub get
-
-# Copy source code and build web release
-COPY . .
-RUN flutter build web --release
-
-# Stage 2: Serve using Nginx Light Web Server
-FROM nginx:alpine AS production-stage
-
-# Copy web build artifact from build-stage to Nginx default public directory
-COPY --from=build-stage /app/build/web /usr/share/nginx/html
-
-# Expose port 80
+# Exponer el puerto 80 del contenedor
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
