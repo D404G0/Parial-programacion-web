@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Backend Python Flask API Service
   backend:
@@ -9,10 +7,18 @@ services:
     container_name: ecoeat_backend
     ports:
       - "5000:5000"
+    env_file:
+      - ./backend/.env
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - PORT=5000
       - HOST=0.0.0.0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/ingredientes/sugeridos"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     restart: unless-stopped
     networks:
       - ecoeat_network
@@ -21,12 +27,13 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.multistage
     container_name: ecoeat_frontend
     ports:
       - "8080:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - ecoeat_network
